@@ -14,7 +14,6 @@ const router = useRouter();
 router.push(store.getters["user/calcHome"]);
 </script>
 
-<template>
-</template>
+<template></template>
 
 <style scoped></style>

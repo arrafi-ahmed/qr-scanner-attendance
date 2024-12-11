@@ -5,7 +5,7 @@
  */
 // lab
 import { VTimePicker } from "vuetify/labs/VTimePicker";
-import { VDateInput } from 'vuetify/labs/VDateInput'
+import { VDateInput } from "vuetify/labs/VDateInput";
 // Styles
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";

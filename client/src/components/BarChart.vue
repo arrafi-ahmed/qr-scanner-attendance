@@ -1,13 +1,13 @@
 <script setup>
 import { Bar } from "vue-chartjs";
 import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
   BarElement,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
   LinearScale,
+  Title,
+  Tooltip,
 } from "chart.js";
 import { defineProps } from "vue";
 

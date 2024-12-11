@@ -110,32 +110,20 @@ const handleSubmitForm = () => {
 
 <template>
   <v-container>
-    <v-row
-      align="start"
-      justify="center"
-      class="fill-height"
-      no-gutters
-    >
-      <v-col
-        cols="12"
-        lg="6"
-        md="8"
-        sm="10"
-      >
-        <h2 class="mb-2 mb-md-4">
-          Scanned List
-        </h2>
+    <v-row align="start" class="fill-height" justify="center" no-gutters>
+      <v-col cols="12" lg="6" md="8" sm="10">
+        <h2 class="mb-2 mb-md-4">Scanned List</h2>
 
         <v-card>
           <v-card-title>
             <div class="d-flex justify-space-between align-center">
               <span> Scanned Employees</span>
               <v-btn
-                icon="mdi-plus"
                 class="ml-1"
-                tile
-                rounded
                 density="comfortable"
+                icon="mdi-plus"
+                rounded
+                tile
                 variant="tonal"
                 @click="employeeDialog = !employeeDialog"
               />
@@ -148,55 +136,34 @@ const handleSubmitForm = () => {
                 v-model:search="searchEmployeeQuery"
                 :items="searchEmployeeList"
                 :loading="searchEmployeeLoading"
-                label="Search Employees"
-                item-id="id"
-                item-title="employeeId"
-                return-object
-                no-filter
                 density="compact"
                 hide-details="auto"
+                item-id="id"
+                item-title="employeeId"
+                label="Search Employees"
+                no-filter
+                return-object
                 variant="outlined"
                 @update:search="handleSearchEmployee"
                 @update:model-value="handleAddEmployeeToScanList"
               />
             </div>
 
-            <v-table
-              v-if="employees.length"
-              density="comfortable"
-            >
+            <v-table v-if="employees.length" density="comfortable">
               <thead>
                 <tr>
-                  <th class="text-left">
-                    Employee ID
-                  </th>
-                  <th class="text-left">
-                    Time
-                  </th>
-                  <th class="text-left">
-                    QR Code
-                  </th>
+                  <th class="text-left">Employee ID</th>
+                  <th class="text-left">Time</th>
+                  <th class="text-left">QR Code</th>
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="item in employees"
-                  :key="item.id"
-                >
+                <tr v-for="item in employees" :key="item.id">
                   <td>{{ item.employeeId }}</td>
                   <td>{{ formatDateTime(item.createdAt) }}</td>
                   <td>
                     <qrcodeVue3
                       v-if="item.uuid"
-                      :value="
-                        JSON.stringify({
-                          id: item.id,
-                          type: 'employee',
-                          employeeId: item.employeeId,
-                          uuid: item.uuid,
-                        })
-                      "
-                      :margin="4"
                       :dots-options="{
                         type: 'dot',
                         color: theme.global.current.value.colors.primary,
@@ -206,6 +173,15 @@ const handleSubmitForm = () => {
                         name: item.employeeId,
                         extension: 'png',
                       }"
+                      :margin="4"
+                      :value="
+                        JSON.stringify({
+                          id: item.id,
+                          type: 'employee',
+                          employeeId: item.employeeId,
+                          uuid: item.uuid,
+                        })
+                      "
                       download-button="v-btn v-theme--light v-btn--density-compact v-btn--size-small pa-0 v-btn--variant-text"
                       imgclass="d-none"
                     />
@@ -222,19 +198,19 @@ const handleSubmitForm = () => {
             <span>Scanned Bus</span>
             <span>
               <v-btn
-                icon="mdi-qrcode-scan"
-                tile
-                rounded
                 density="comfortable"
+                icon="mdi-qrcode-scan"
+                rounded
+                tile
                 variant="tonal"
                 @click="handleGoScan"
               />
               <v-btn
-                icon="mdi-plus"
                 class="ml-1"
-                tile
-                rounded
                 density="comfortable"
+                icon="mdi-plus"
+                rounded
+                tile
                 variant="tonal"
                 @click="busDialog = !busDialog"
               />
@@ -247,33 +223,24 @@ const handleSubmitForm = () => {
                 v-model:search="searchBusQuery"
                 :items="searchBusList"
                 :loading="searchBusLoading"
-                label="Search Bus"
-                item-id="id"
-                item-title="busId"
-                return-object
-                no-filter
                 density="compact"
                 hide-details="auto"
+                item-id="id"
+                item-title="busId"
+                label="Search Bus"
+                no-filter
+                return-object
                 variant="outlined"
                 @update:search="handleSearchBus"
                 @update:model-value="handleAddBusToScanList"
               />
             </div>
-            <v-table
-              v-if="bus.id"
-              density="comfortable"
-            >
+            <v-table v-if="bus.id" density="comfortable">
               <thead>
                 <tr>
-                  <th class="text-left">
-                    Bus ID
-                  </th>
-                  <th class="text-left">
-                    Time
-                  </th>
-                  <th class="text-left">
-                    QR Code
-                  </th>
+                  <th class="text-left">Bus ID</th>
+                  <th class="text-left">Time</th>
+                  <th class="text-left">QR Code</th>
                 </tr>
               </thead>
               <tbody>
@@ -283,15 +250,6 @@ const handleSubmitForm = () => {
                   <td>
                     <qrcodeVue3
                       v-if="bus.uuid"
-                      :value="
-                        JSON.stringify({
-                          id: bus.id,
-                          type: 'bus',
-                          busId: bus.busId,
-                          uuid: bus.uuid,
-                        })
-                      "
-                      :margin="4"
                       :dots-options="{
                         type: 'dot',
                         color: theme.global.current.value.colors.primary,
@@ -301,6 +259,15 @@ const handleSubmitForm = () => {
                         name: bus.busId,
                         extension: 'png',
                       }"
+                      :margin="4"
+                      :value="
+                        JSON.stringify({
+                          id: bus.id,
+                          type: 'bus',
+                          busId: bus.busId,
+                          uuid: bus.uuid,
+                        })
+                      "
                       download-button="v-btn v-theme--light v-btn--density-compact v-btn--size-small pa-0 v-btn--variant-text"
                       imgclass="d-none"
                     />
@@ -324,17 +291,14 @@ const handleSubmitForm = () => {
     </v-row>
   </v-container>
 
-  <v-dialog
-    v-model="employeeDialog"
-    :width="450"
-  >
+  <v-dialog v-model="employeeDialog" :width="450">
     <v-card>
       <v-card-title class="d-flex justify-space-between">
         <span>Add new employee</span>
         <v-btn
           icon="mdi-close"
-          variant="text"
           size="small"
+          variant="text"
           @click="employeeDialog = !employeeDialog"
         />
       </v-card-title>
@@ -350,48 +314,39 @@ const handleSubmitForm = () => {
             :rules="[(v) => !!v || 'ID is required!']"
             class="mt-2"
             clearable
+            density="comfortable"
             hide-details="auto"
             label="ID"
             variant="outlined"
-            density="comfortable"
           />
           <v-text-field
             v-model="newEmployee.name"
             :rules="[(v) => !!v || 'Name is required!']"
             class="mt-2"
             clearable
+            density="comfortable"
             hide-details="auto"
             label="Name"
             variant="outlined"
-            density="comfortable"
           />
 
           <v-card-actions>
             <v-spacer />
-            <v-btn
-              color="primary"
-              type="submit"
-              variant="flat"
-            >
-              Save
-            </v-btn>
+            <v-btn color="primary" type="submit" variant="flat"> Save </v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>
     </v-card>
   </v-dialog>
 
-  <v-dialog
-    v-model="busDialog"
-    :width="450"
-  >
+  <v-dialog v-model="busDialog" :width="450">
     <v-card>
       <v-card-title class="d-flex justify-space-between">
         <span>Add new bus</span>
         <v-btn
           icon="mdi-close"
-          variant="text"
           size="small"
+          variant="text"
           @click="busDialog = !busDialog"
         />
       </v-card-title>
@@ -407,31 +362,25 @@ const handleSubmitForm = () => {
             :rules="[(v) => !!v || 'ID is required!']"
             class="mt-2"
             clearable
+            density="comfortable"
             hide-details="auto"
             label="ID"
             variant="outlined"
-            density="comfortable"
           />
           <v-text-field
             v-model="newBus.name"
             :rules="[(v) => !!v || 'Name is required!']"
             class="mt-2"
             clearable
+            density="comfortable"
             hide-details="auto"
             label="Name"
             variant="outlined"
-            density="comfortable"
           />
 
           <v-card-actions>
             <v-spacer />
-            <v-btn
-              color="primary"
-              type="submit"
-              variant="flat"
-            >
-              Save
-            </v-btn>
+            <v-btn color="primary" type="submit" variant="flat"> Save </v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>

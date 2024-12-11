@@ -76,7 +76,6 @@ exports.getUserById = async ({ id }) => {
 
 exports.requestResetPass = async ({ payload: { resetEmail } }) => {
   const fetchedUser = await exports.getUserByEmail({ email: resetEmail });
-  console.log(resetEmail, fetchedUser);
   if (!fetchedUser) throw new CustomError("User doesn't exist!");
 
   const reset = {

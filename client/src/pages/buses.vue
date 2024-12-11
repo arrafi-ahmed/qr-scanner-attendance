@@ -1,7 +1,7 @@
 <script setup>
 import NoItems from "@/components/NoItems.vue";
-import {formatDateTime, getDateOnly} from "@/others/util.js";
-import {useStore} from "vuex";
+import { formatDateTime, getDateOnly } from "@/others/util.js";
+import { useStore } from "vuex";
 
 definePage({
   name: "buses",
@@ -28,7 +28,7 @@ const totalPagesBus = computed(() =>
 const busLoading = ref(false);
 const busSearch = ref("");
 
-const loadBusItems = ({fetchTotalCount = false} = {}) => {
+const loadBusItems = ({ fetchTotalCount = false } = {}) => {
   const rangeLength = busDateRange.value?.length;
   const endDate =
     rangeLength != null
@@ -51,7 +51,7 @@ const updateBusDateRange = async () => {
   const rangeLength = busDateRange.value?.length;
   if (!rangeLength) return;
 
-  const {totalCount} = await loadBusItems({fetchTotalCount: true});
+  const { totalCount } = await loadBusItems({ fetchTotalCount: true });
   totalCountBus.value = totalCount;
 };
 
@@ -69,7 +69,7 @@ const goLastBus = async () => {
 };
 
 const fetchData = async () => {
-  const {totalCount} = await loadBusItems({fetchTotalCount: true});
+  const { totalCount } = await loadBusItems({ fetchTotalCount: true });
   totalCountBus.value = totalCount;
 };
 onMounted(async () => {
@@ -79,7 +79,7 @@ onMounted(async () => {
 
 <template>
   <v-container>
-    <v-row justify="space-between" align="center">
+    <v-row align="center" justify="space-between">
       <v-col>
         <h2>Buses</h2>
       </v-col>
@@ -87,13 +87,13 @@ onMounted(async () => {
         <div style="width: 250px">
           <v-date-input
             v-model="busDateRange"
+            append-inner-icon="mdi-calendar"
+            density="compact"
+            hide-details="auto"
             label="Select Date"
             multiple="range"
             prepend-icon=""
-            append-inner-icon="mdi-calendar"
             variant="outlined"
-            density="compact"
-            hide-details="auto"
             @update:model-value="updateBusDateRange"
           ></v-date-input>
         </div>
@@ -102,32 +102,32 @@ onMounted(async () => {
 
     <v-row>
       <v-col>
-        <v-sheet color="white" class="pa-3">
-          <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
-
-          </div>
+        <v-sheet class="pa-3" color="white">
+          <div
+            class="d-flex justify-space-between align-center mb-2 mb-md-4"
+          ></div>
           <!--          {{ totalCountBus }}-{{ totalPagesBus }}-->
           <v-data-table-server
             v-if="busListWScanCount.length"
             :headers="busHeaders"
             :items="busListWScanCount"
             :items-length="totalCountBus"
+            :items-per-page="busItemsPerPage"
             :loading="busLoading"
             :search="busSearch"
-            item-value="name"
-            :items-per-page="busItemsPerPage"
             disable-sort
             hide-default-footer
             hide-no-data
+            item-value="name"
           >
             <template #bottom>
               <div class="text-center">
                 <v-pagination
                   v-model="pageBus"
-                  :total-visible="1"
                   :length="totalPagesBus"
-                  density="compact"
+                  :total-visible="1"
                   class="mt-2"
+                  density="compact"
                   show-first-last-page
                   @first="goFirstBus"
                   @last="goLastBus"
@@ -137,7 +137,7 @@ onMounted(async () => {
               </div>
             </template>
           </v-data-table-server>
-          <no-items v-else variant="icon"/>
+          <no-items v-else variant="icon" />
         </v-sheet>
       </v-col>
     </v-row>

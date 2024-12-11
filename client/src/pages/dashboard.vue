@@ -352,19 +352,19 @@ onMounted(async () => {
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet color="white" class="pa-3">
+        <v-sheet class="pa-3" color="white">
           <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
             <div class="text-body-1 font-weight-bold">Employees</div>
             <div style="width: 250px">
               <v-date-input
                 v-model="employeeDateRange"
+                append-inner-icon="mdi-calendar"
+                density="compact"
+                hide-details="auto"
                 label="Select Date"
                 multiple="range"
                 prepend-icon=""
-                append-inner-icon="mdi-calendar"
                 variant="outlined"
-                density="compact"
-                hide-details="auto"
                 @update:model-value="updateEmployeeDateRange"
               ></v-date-input>
             </div>
@@ -375,22 +375,22 @@ onMounted(async () => {
             :headers="employeeHeaders"
             :items="employeeListWScanCount"
             :items-length="totalCountEmployee"
+            :items-per-page="employeeItemsPerPage"
             :loading="employeeLoading"
             :search="employeeSearch"
-            item-value="name"
-            :items-per-page="employeeItemsPerPage"
             disable-sort
             hide-default-footer
             hide-no-data
+            item-value="name"
           >
             <template #bottom>
               <div class="text-center">
                 <v-pagination
                   v-model="pageEmployee"
-                  :total-visible="1"
                   :length="totalPagesEmployee"
-                  density="compact"
+                  :total-visible="1"
                   class="mt-2"
+                  density="compact"
                   show-first-last-page
                   @first="goFirstEmployee"
                   @last="goLastEmployee"
@@ -404,19 +404,19 @@ onMounted(async () => {
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet color="white" class="pa-3">
+        <v-sheet class="pa-3" color="white">
           <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
             <div class="text-body-1 font-weight-bold">Buses</div>
             <div style="width: 250px">
               <v-date-input
                 v-model="busDateRange"
+                append-inner-icon="mdi-calendar"
+                density="compact"
+                hide-details="auto"
                 label="Select Date"
                 multiple="range"
                 prepend-icon=""
-                append-inner-icon="mdi-calendar"
                 variant="outlined"
-                density="compact"
-                hide-details="auto"
                 @update:model-value="updateBusDateRange"
               ></v-date-input>
             </div>
@@ -427,22 +427,22 @@ onMounted(async () => {
             :headers="busHeaders"
             :items="busListWScanCount"
             :items-length="totalCountBus"
+            :items-per-page="busItemsPerPage"
             :loading="busLoading"
             :search="busSearch"
-            item-value="name"
-            :items-per-page="busItemsPerPage"
             disable-sort
             hide-default-footer
             hide-no-data
+            item-value="name"
           >
             <template #bottom>
               <div class="text-center">
                 <v-pagination
                   v-model="pageBus"
-                  :total-visible="1"
                   :length="totalPagesBus"
-                  density="compact"
+                  :total-visible="1"
                   class="mt-2"
+                  density="compact"
                   show-first-last-page
                   @first="goFirstBus"
                   @last="goLastBus"
@@ -462,27 +462,27 @@ onMounted(async () => {
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet color="white" class="pa-3">
+        <v-sheet class="pa-3" color="white">
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Analytics of Employees
           </div>
           <bar-chart
             v-if="employeeBarChartData.datasets?.[0]?.data?.length"
-            :chart-options="barChartOptions"
             :chart-data="employeeBarChartData"
+            :chart-options="barChartOptions"
           />
           <no-items v-else variant="icon" />
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet color="white" class="pa-3">
+        <v-sheet class="pa-3" color="white">
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Analytics of Buses
           </div>
           <bar-chart
             v-if="busBarChartData.datasets?.[0]?.data?.length"
-            :chart-options="barChartOptions"
             :chart-data="busBarChartData"
+            :chart-options="barChartOptions"
           />
           <no-items v-else variant="icon" />
         </v-sheet>
@@ -490,7 +490,7 @@ onMounted(async () => {
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet color="white" class="pa-3">
+        <v-sheet class="pa-3" color="white">
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Employees Scanned Daily
           </div>

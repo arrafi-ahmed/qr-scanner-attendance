@@ -95,12 +95,12 @@ const drawer = ref(true);
     location="start"
     permanent
   >
-    <v-list density="comfortable" color="primary" nav>
+    <v-list color="primary" density="comfortable" nav>
       <v-list-item
         v-for="(item, index) in menuItems"
         :key="index"
-        :to="getToLink(item)"
         :prepend-icon="item.icon"
+        :to="getToLink(item)"
       >
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>

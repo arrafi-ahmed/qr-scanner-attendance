@@ -16,26 +16,11 @@ const { justify, text, variant, cols, sm, md, lg, xl, closable, customClass } =
 
 <template>
   <v-container>
-    <v-row
-      :class="`${customClass} text-wrap`"
-      :justify="justify"
-    >
-      <v-col
-        :cols="cols"
-        :lg="lg"
-        :md="md"
-        :sm="sm"
-        :xl="xl"
-      >
-        <div
-          v-if="variant === 'icon'"
-          class="mx-auto my-2 my-md-5"
-        >
+    <v-row :class="`${customClass} text-wrap`" :justify="justify">
+      <v-col :cols="cols" :lg="lg" :md="md" :sm="sm" :xl="xl">
+        <div v-if="variant === 'icon'" class="mx-auto my-2 my-md-5">
           <div>
-            <v-icon
-              :size="80"
-              class="text-disabled"
-            >
+            <v-icon :size="80" class="text-disabled">
               mdi-text-box-search-outline
             </v-icon>
           </div>

@@ -46,9 +46,9 @@ export const getHourOnly = (timestamp) => {
   if (!timestamp) return "";
 
   const date = new Date(timestamp);
-  const hours = date.getHours()
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  const formattedHours = hours % 12 || 12
+  const hours = date.getHours();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  const formattedHours = hours % 12 || 12;
 
   return `${formattedHours} ${ampm}`;
 };

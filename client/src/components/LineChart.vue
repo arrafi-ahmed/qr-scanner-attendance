@@ -2,15 +2,15 @@
 import { defineProps } from "vue";
 import { Line } from "vue-chartjs";
 import {
+  CategoryScale,
   Chart as ChartJS,
+  Filler,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Filler, // Required for area charts
 } from "chart.js";
 
 // Register Chart.js components
@@ -34,5 +34,5 @@ defineProps({
 </script>
 
 <template>
-  <Line :data="chartData" :options="chartOptions" :height="height" />
+  <Line :data="chartData" :height="height" :options="chartOptions" />
 </template>

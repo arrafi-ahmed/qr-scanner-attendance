@@ -10,10 +10,7 @@ const items = [{ title: "Home", to: calcHome }];
 </script>
 <template>
   <v-footer class="bg-grey-lighten-3 flex-grow-0">
-    <v-row
-      justify="center"
-      no-gutters
-    >
+    <v-row justify="center" no-gutters>
       <!--      <v-btn-->
       <!--        v-for="(item, index) in items"-->
       <!--        :key="index"-->
@@ -27,10 +24,7 @@ const items = [{ title: "Home", to: calcHome }];
       <!--      >-->
       <!--        {{ item.title }}-->
       <!--      </v-btn>-->
-      <v-col
-        class="text-center"
-        :cols="12"
-      >
+      <v-col :cols="12" class="text-center">
         <small>
           &copy; {{ new Date().getFullYear() }} —
           <strong>{{ appInfo.name }}</strong> v{{ appInfo.version }}

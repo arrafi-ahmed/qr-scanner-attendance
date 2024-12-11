@@ -10,8 +10,8 @@ const { imgSrc, clickable } = defineProps({
 <template>
   <v-avatar
     :class="{ clickable }"
-    rounded="circle"
     :size="35"
+    rounded="circle"
     title
     @click="clickable ? $emit('clickAvatar') : undefined"
   >

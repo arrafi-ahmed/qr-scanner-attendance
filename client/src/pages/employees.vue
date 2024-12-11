@@ -1,7 +1,7 @@
 <script setup>
 import NoItems from "@/components/NoItems.vue";
-import {formatDateTime, getDateOnly} from "@/others/util.js";
-import {useStore} from "vuex";
+import { formatDateTime, getDateOnly } from "@/others/util.js";
+import { useStore } from "vuex";
 
 definePage({
   name: "employees",
@@ -79,7 +79,7 @@ onMounted(async () => {
 
 <template>
   <v-container>
-    <v-row justify="space-between" align="center">
+    <v-row align="center" justify="space-between">
       <v-col>
         <h2>Employees</h2>
       </v-col>
@@ -87,13 +87,13 @@ onMounted(async () => {
         <div style="width: 250px">
           <v-date-input
             v-model="employeeDateRange"
+            append-inner-icon="mdi-calendar"
+            density="compact"
+            hide-details="auto"
             label="Select Date"
             multiple="range"
             prepend-icon=""
-            append-inner-icon="mdi-calendar"
             variant="outlined"
-            density="compact"
-            hide-details="auto"
             @update:model-value="updateEmployeeDateRange"
           ></v-date-input>
         </div>
@@ -102,32 +102,32 @@ onMounted(async () => {
 
     <v-row>
       <v-col>
-        <v-sheet color="white" class="pa-3">
-          <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
-
-          </div>
+        <v-sheet class="pa-3" color="white">
+          <div
+            class="d-flex justify-space-between align-center mb-2 mb-md-4"
+          ></div>
           <!--          {{ totalCountEmployee }}-{{ totalPagesEmployee }}-->
           <v-data-table-server
             v-if="employeeListWScanCount.length"
             :headers="employeeHeaders"
             :items="employeeListWScanCount"
             :items-length="totalCountEmployee"
+            :items-per-page="employeeItemsPerPage"
             :loading="employeeLoading"
             :search="employeeSearch"
-            item-value="name"
-            :items-per-page="employeeItemsPerPage"
             disable-sort
             hide-default-footer
             hide-no-data
+            item-value="name"
           >
             <template #bottom>
               <div class="text-center">
                 <v-pagination
                   v-model="pageEmployee"
-                  :total-visible="1"
                   :length="totalPagesEmployee"
-                  density="compact"
+                  :total-visible="1"
                   class="mt-2"
+                  density="compact"
                   show-first-last-page
                   @first="goFirstEmployee"
                   @last="goLastEmployee"
