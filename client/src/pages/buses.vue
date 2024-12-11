@@ -79,7 +79,10 @@ onMounted(async () => {
 
 <template>
   <v-container>
-    <v-row align="center" justify="space-between">
+    <v-row
+      align="center"
+      justify="space-between"
+    >
       <v-col>
         <h2>Buses</h2>
       </v-col>
@@ -95,17 +98,20 @@ onMounted(async () => {
             prepend-icon=""
             variant="outlined"
             @update:model-value="updateBusDateRange"
-          ></v-date-input>
+          />
         </div>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div
             class="d-flex justify-space-between align-center mb-2 mb-md-4"
-          ></div>
+          />
           <!--          {{ totalCountBus }}-{{ totalPagesBus }}-->
           <v-data-table-server
             v-if="busListWScanCount.length"
@@ -133,11 +139,14 @@ onMounted(async () => {
                   @last="goLastBus"
                   @next="goNextBus"
                   @prev="goPrevBus"
-                ></v-pagination>
+                />
               </div>
             </template>
           </v-data-table-server>
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
     </v-row>

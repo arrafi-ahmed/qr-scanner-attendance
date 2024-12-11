@@ -110,9 +110,21 @@ const handleSubmitForm = () => {
 
 <template>
   <v-container>
-    <v-row align="start" class="fill-height" justify="center" no-gutters>
-      <v-col cols="12" lg="6" md="8" sm="10">
-        <h2 class="mb-2 mb-md-4">Scanned List</h2>
+    <v-row
+      align="start"
+      class="fill-height"
+      justify="center"
+      no-gutters
+    >
+      <v-col
+        cols="12"
+        lg="6"
+        md="8"
+        sm="10"
+      >
+        <h2 class="mb-2 mb-md-4">
+          Scanned List
+        </h2>
 
         <v-card>
           <v-card-title>
@@ -149,16 +161,28 @@ const handleSubmitForm = () => {
               />
             </div>
 
-            <v-table v-if="employees.length" density="comfortable">
+            <v-table
+              v-if="employees.length"
+              density="comfortable"
+            >
               <thead>
                 <tr>
-                  <th class="text-left">Employee ID</th>
-                  <th class="text-left">Time</th>
-                  <th class="text-left">QR Code</th>
+                  <th class="text-left">
+                    Employee ID
+                  </th>
+                  <th class="text-left">
+                    Time
+                  </th>
+                  <th class="text-left">
+                    QR Code
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in employees" :key="item.id">
+                <tr
+                  v-for="item in employees"
+                  :key="item.id"
+                >
                   <td>{{ item.employeeId }}</td>
                   <td>{{ formatDateTime(item.createdAt) }}</td>
                   <td>
@@ -235,12 +259,21 @@ const handleSubmitForm = () => {
                 @update:model-value="handleAddBusToScanList"
               />
             </div>
-            <v-table v-if="bus.id" density="comfortable">
+            <v-table
+              v-if="bus.id"
+              density="comfortable"
+            >
               <thead>
                 <tr>
-                  <th class="text-left">Bus ID</th>
-                  <th class="text-left">Time</th>
-                  <th class="text-left">QR Code</th>
+                  <th class="text-left">
+                    Bus ID
+                  </th>
+                  <th class="text-left">
+                    Time
+                  </th>
+                  <th class="text-left">
+                    QR Code
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -291,7 +324,10 @@ const handleSubmitForm = () => {
     </v-row>
   </v-container>
 
-  <v-dialog v-model="employeeDialog" :width="450">
+  <v-dialog
+    v-model="employeeDialog"
+    :width="450"
+  >
     <v-card>
       <v-card-title class="d-flex justify-space-between">
         <span>Add new employee</span>
@@ -332,14 +368,23 @@ const handleSubmitForm = () => {
 
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" type="submit" variant="flat"> Save </v-btn>
+            <v-btn
+              color="primary"
+              type="submit"
+              variant="flat"
+            >
+              Save
+            </v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>
     </v-card>
   </v-dialog>
 
-  <v-dialog v-model="busDialog" :width="450">
+  <v-dialog
+    v-model="busDialog"
+    :width="450"
+  >
     <v-card>
       <v-card-title class="d-flex justify-space-between">
         <span>Add new bus</span>
@@ -380,7 +425,13 @@ const handleSubmitForm = () => {
 
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" type="submit" variant="flat"> Save </v-btn>
+            <v-btn
+              color="primary"
+              type="submit"
+              variant="flat"
+            >
+              Save
+            </v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>

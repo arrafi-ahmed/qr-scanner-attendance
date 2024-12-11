@@ -67,7 +67,12 @@ const drawer = ref(true);
 </script>
 
 <template>
-  <v-app-bar class="px-2 px-md-5 border-b" dense density="compact" flat>
+  <v-app-bar
+    class="px-2 px-md-5 border-b"
+    dense
+    density="compact"
+    flat
+  >
     <logo
       :img-src="getClientPublicImgUrl('logo.png')"
       :title="true"
@@ -78,7 +83,10 @@ const drawer = ref(true);
     />
 
     <template #append>
-      <v-btn v-if="signedin" @click="drawer = !drawer">
+      <v-btn
+        v-if="signedin"
+        @click="drawer = !drawer"
+      >
         <div class="d-flex align-center">
           <user-avatar :img-src="currentUser.image" />
           <span class="ml-1">
@@ -95,7 +103,11 @@ const drawer = ref(true);
     location="start"
     permanent
   >
-    <v-list color="primary" density="comfortable" nav>
+    <v-list
+      color="primary"
+      density="comfortable"
+      nav
+    >
       <v-list-item
         v-for="(item, index) in menuItems"
         :key="index"

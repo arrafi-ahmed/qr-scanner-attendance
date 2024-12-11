@@ -113,9 +113,19 @@ onMounted(() => {
       justify="center"
       no-gutters
     >
-      <v-col cols="12" lg="6" md="8" sm="10">
-        <v-card :elevation="2" :max-width="450">
-          <v-card-title class="text-center"> QR Code Scanner </v-card-title>
+      <v-col
+        cols="12"
+        lg="6"
+        md="8"
+        sm="10"
+      >
+        <v-card
+          :elevation="2"
+          :max-width="450"
+        >
+          <v-card-title class="text-center">
+            QR Code Scanner
+          </v-card-title>
           <v-card-text class="d-flex justify-center">
             <qrcode-stream
               v-if="showCamera"
@@ -129,10 +139,18 @@ onMounted(() => {
             <!--              :max-width="250"-->
             <!--              :src="getClientPublicImgUrl('sample-qr-code.png')"-->
             <!--            />-->
-            <v-icon v-else :size="200"> mdi-qrcode-scan </v-icon>
+            <v-icon
+              v-else
+              :size="200"
+            >
+              mdi-qrcode-scan
+            </v-icon>
           </v-card-text>
           <v-card-actions>
-            <span v-if="!showCamera" class="mx-auto">
+            <span
+              v-if="!showCamera"
+              class="mx-auto"
+            >
               <v-btn
                 color="primary"
                 variant="flat"
@@ -149,7 +167,10 @@ onMounted(() => {
                 Scan Bus
               </v-btn>
             </span>
-            <span v-else class="mx-auto">
+            <span
+              v-else
+              class="mx-auto"
+            >
               <v-btn
                 color="primary"
                 variant="flat"
@@ -163,23 +184,46 @@ onMounted(() => {
       </v-col>
     </v-row>
 
-    <v-row v-else align="start" class="fill-height" justify="center" no-gutters>
-      <v-col cols="12" lg="6" md="8" sm="10">
-        <h2 class="mb-2 mb-md-4">Scanned QR Codes</h2>
+    <v-row
+      v-else
+      align="start"
+      class="fill-height"
+      justify="center"
+      no-gutters
+    >
+      <v-col
+        cols="12"
+        lg="6"
+        md="8"
+        sm="10"
+      >
+        <h2 class="mb-2 mb-md-4">
+          Scanned QR Codes
+        </h2>
         <v-card>
           <v-card-title>Scanned Employees</v-card-title>
           <v-card-text>
-            <v-table v-if="tempEmployees.length" density="comfortable">
+            <v-table
+              v-if="tempEmployees.length"
+              density="comfortable"
+            >
               <thead>
                 <tr>
-                  <th class="text-left">Employee ID</th>
-                  <th class="text-left">Time</th>
+                  <th class="text-left">
+                    Employee ID
+                  </th>
+                  <th class="text-left">
+                    Time
+                  </th>
                   <th class="text-left" />
                   <th class="text-left" />
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in tempEmployees" :key="item.id">
+                <tr
+                  v-for="item in tempEmployees"
+                  :key="item.id"
+                >
                   <td>{{ item.employeeId }}</td>
                   <td>{{ formatDateTime(item.createdAt) }}</td>
                   <td><span class="text-success">Accepted</span></td>

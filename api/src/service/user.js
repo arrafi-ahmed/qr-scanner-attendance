@@ -104,9 +104,9 @@ exports.submitResetPass = async ({ payload: { token, newPass } }) => {
   if (expirationMillis < Date.now())
     throw new CustomError("Password reset link expired!");
 
-  const [fetchedUser] = await exports.getUserById({ id: reset.userId });
+  const fetchedUser = await exports.getUserById({ id: reset.userId });
 
-  const [savedUser] = await exports.save({
+  const savedUser = await exports.save({
     payload: { ...fetchedUser, password: newPass },
   });
   return savedUser;

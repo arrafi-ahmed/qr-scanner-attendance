@@ -58,8 +58,16 @@ const handleSubmitResetPassword = async () => {
 
 <template>
   <v-container class="fill-height">
-    <v-row align="center" justify="center">
-      <v-col :cols="12" :lg="6" :md="6" :sm="6">
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col
+        :cols="12"
+        :lg="6"
+        :md="6"
+        :sm="6"
+      >
         <v-card
           class="mx-auto pa-4 pa-md-8 my-2 my-md-5"
           color="grey-lighten-3"
@@ -141,7 +149,10 @@ const handleSubmitResetPassword = async () => {
     </v-row>
   </v-container>
 
-  <v-dialog v-model="dialog" :width="350">
+  <v-dialog
+    v-model="dialog"
+    :width="350"
+  >
     <v-card>
       <v-card-title>
         <span>Reset Password</span>

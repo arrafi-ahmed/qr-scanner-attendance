@@ -306,8 +306,13 @@ onMounted(async () => {
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet class="pa-3" rounded>
-          <div class="text-body-2 text-disabled">TOTAL EMPLOYEES</div>
+        <v-sheet
+          class="pa-3"
+          rounded
+        >
+          <div class="text-body-2 text-disabled">
+            TOTAL EMPLOYEES
+          </div>
           <div class="d-flex justify-space-between align-center">
             <h2>{{ dashboard.employeeStat?.totalEmployees || 0 }}</h2>
             <v-icon class="bg-deep-purple-lighten-1 pa-6 rounded-circle">
@@ -317,8 +322,13 @@ onMounted(async () => {
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet class="pa-3" rounded>
-          <div class="text-body-2 text-disabled">TOTAL BUSES</div>
+        <v-sheet
+          class="pa-3"
+          rounded
+        >
+          <div class="text-body-2 text-disabled">
+            TOTAL BUSES
+          </div>
           <div class="d-flex justify-space-between align-center">
             <h2>{{ dashboard.busStat?.totalBuses || 0 }}</h2>
             <v-icon class="bg-orange-darken-1 pa-6 rounded-circle">
@@ -328,8 +338,13 @@ onMounted(async () => {
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet class="pa-3" rounded>
-          <div class="text-body-2 text-disabled">EMPLOYEES ACTIVE TODAY</div>
+        <v-sheet
+          class="pa-3"
+          rounded
+        >
+          <div class="text-body-2 text-disabled">
+            EMPLOYEES ACTIVE TODAY
+          </div>
           <div class="d-flex justify-space-between align-center">
             <h2>{{ dashboard.employeeStat?.employeesActiveToday || 0 }}</h2>
             <v-icon class="bg-green-accent-3 pa-6 rounded-circle">
@@ -339,8 +354,13 @@ onMounted(async () => {
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet class="pa-3" rounded>
-          <div class="text-body-2 text-disabled">BUSES ACTIVE TODAY</div>
+        <v-sheet
+          class="pa-3"
+          rounded
+        >
+          <div class="text-body-2 text-disabled">
+            BUSES ACTIVE TODAY
+          </div>
           <div class="d-flex justify-space-between align-center">
             <h2>{{ dashboard.busStat?.busesActiveToday || 0 }}</h2>
             <v-icon class="bg-green-accent-2 pa-6 rounded-circle">
@@ -352,9 +372,14 @@ onMounted(async () => {
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
-            <div class="text-body-1 font-weight-bold">Employees</div>
+            <div class="text-body-1 font-weight-bold">
+              Employees
+            </div>
             <div style="width: 250px">
               <v-date-input
                 v-model="employeeDateRange"
@@ -366,7 +391,7 @@ onMounted(async () => {
                 prepend-icon=""
                 variant="outlined"
                 @update:model-value="updateEmployeeDateRange"
-              ></v-date-input>
+              />
             </div>
           </div>
           <!--          {{ totalCountEmployee }}-{{ totalPagesEmployee }}-->
@@ -396,17 +421,25 @@ onMounted(async () => {
                   @last="goLastEmployee"
                   @next="goNextEmployee"
                   @prev="goPrevEmployee"
-                ></v-pagination>
+                />
               </div>
             </template>
           </v-data-table-server>
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div class="d-flex justify-space-between align-center mb-2 mb-md-4">
-            <div class="text-body-1 font-weight-bold">Buses</div>
+            <div class="text-body-1 font-weight-bold">
+              Buses
+            </div>
             <div style="width: 250px">
               <v-date-input
                 v-model="busDateRange"
@@ -418,7 +451,7 @@ onMounted(async () => {
                 prepend-icon=""
                 variant="outlined"
                 @update:model-value="updateBusDateRange"
-              ></v-date-input>
+              />
             </div>
           </div>
           <!--          {{ totalCountBus }}-{{ totalPagesBus }}-->
@@ -448,7 +481,7 @@ onMounted(async () => {
                   @last="goLastBus"
                   @next="goNextBus"
                   @prev="goPrevBus"
-                ></v-pagination>
+                />
                 <!--                  :length="15"-->
                 <!--                  show-first-last-page-->
                 <!--                  @first="goFirstBus"-->
@@ -456,13 +489,19 @@ onMounted(async () => {
               </div>
             </template>
           </v-data-table-server>
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Analytics of Employees
           </div>
@@ -471,11 +510,17 @@ onMounted(async () => {
             :chart-data="employeeBarChartData"
             :chart-options="barChartOptions"
           />
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Analytics of Buses
           </div>
@@ -484,13 +529,19 @@ onMounted(async () => {
             :chart-data="busBarChartData"
             :chart-options="barChartOptions"
           />
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        <v-sheet class="pa-3" color="white">
+        <v-sheet
+          class="pa-3"
+          color="white"
+        >
           <div class="text-body-1 font-weight-bold mb-2 mb-md-4">
             Employees Scanned Daily
           </div>
@@ -500,7 +551,10 @@ onMounted(async () => {
             :chart-options="lineChartOptions"
             :height="80"
           />
-          <no-items v-else variant="icon" />
+          <no-items
+            v-else
+            variant="icon"
+          />
         </v-sheet>
       </v-col>
     </v-row>
